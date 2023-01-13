@@ -1,0 +1,45 @@
+{% extends "navbar.html" %}
+
+{% block things %}
+
+
+<section class="shop-single-section mt-5">
+  <div class="auto-container mt-3">
+
+    <div class="shop-single">
+      <div class="product-details">
+
+        <!--Basic Details-->
+        <div class="basic-details">
+          <div class="row clearfix">
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+
+              <figure class="image-box"><a href="" class="" title="Image Caption Here"><img src="{{ object.image.url }}"
+                    alt=""></a></figure>
+            </div>
+            <div class="info-column col-lg-6 col-md-12 col-sm-12 mt-2">
+              <div class="inner-column">
+                <h4>{{ object.title }}</h4>
+                <div class="text">{{object.description}}
+                </div>
+                <div class="price">Price : <span>${{object.price}}</span></div>
+
+                <div class="other-options clearfix">
+                  <div class="item-quantity"></div>
+                  <a href="{{object.get_add_to_cart_url}}"><button type="button" class="theme-btn cart-btn">Add to
+                      cart</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+{% endblock%}

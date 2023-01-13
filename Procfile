@@ -1,0 +1,1 @@
+web gunicorn djecommerce.wsgi:apllication --log-file -

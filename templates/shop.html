@@ -1,0 +1,135 @@
+{%extends "navbar.html"%}
+{%block things%}
+<!-- <div class="title-box mt-5 pt-5">
+    <h2>Featured Products</h2>
+</div>
+
+<div class="row clearfix">
+    {% for item in object_list %}
+
+    <div class="shop-item col-lg-3 col-md-6 col-sm-12">
+        <div class="inner-box">
+            <div class="image">
+                <a href=""><img src="{{ item.image.url }}" alt="" /></a>
+                <div class="overlay-box">
+                    <ul class="option-box">
+                        <li><a href="#"><span class="far fa-heart"></span></a></li>
+                        <li><a href="#"><span class="fa fa-shopping-bag"></span></a></li>
+                        <li><a href="images/resource/products/3.jpg" class="lightbox-image"
+                                data-fancybox="products"><span class="fa fa-search"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lower-content">
+                <h3><a href="product-detail.html">{{ item.title }}</a></h3>
+                <div class="price">${{item.price}}</div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    {% if is_paginated %}
+    <nav class="d-flex justify-content-center wow fadeIn">
+        <ul class="pagination pg-blue">
+
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            {% endif %}
+
+            <li class="page-item active">
+                <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+ -->
+
+
+
+
+<section class="shop-section ">
+    <div class="auto-container">
+        <!--Sec Title-->
+        <div class="title-box mt-5 pt-5">
+            <h2>Featured Products</h2>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort By
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{% url 'core:shop_az' %}">A to Z</a>
+                    <a class="dropdown-item" href="{% url 'core:shop_za' %}">Z to A</a>
+                    <a class="dropdown-item" href="{% url 'core:shop_pl' %}">Price: Low To High</a>
+                    <a class="dropdown-item" href="{% url 'core:shop_ph' %}">Price:High To Low</a>
+                    <a class="dropdown-item" href="{% url 'core:shop_n' %}">Newest</a>
+                    <a class="dropdown-item" href="{% url 'core:shop_o' %}">Oldest</a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row clearfix">
+            <div class="auto-container">
+
+                <!-- Sec Title -->
+                <div class="sec-title light centered">
+                    <h2>We Provide Different Product In Our Shop</h2>
+                    <!-- <div class="text">Survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple.</div> -->
+                </div>
+
+                <div class="row clearfix">
+
+                    {% for item in object_list %}
+                    <!-- Service Block -->
+                    <div class="service-block-three col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="image">
+                                <a href="{{ item.get_absolute_url }}"><img src="{{ item.image.url }}" alt="" /></a>
+                            </div>
+                            <div class="lower-content">
+                                <h3><a href="{{ item.get_absolute_url }}">{{item.title}}</a></h3>
+                                <div class="text">{{item.description}}.</div>
+                                <a href="{{ item.get_absolute_url }}" class="read">
+                                    <h4> {{item.price}}</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+
+            </div>
+
+            <!--Shop Item-->
+
+
+
+        </div>
+
+
+
+    </div>
+
+</section>
+
+{%endblock%}
